@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Enzo on the 14/07/2017.
+ * Created by khalil on the 28/09/2017.
  */
 
 public class Book implements Parcelable{
 
     private String mThumbnail;
     private String mTitle;
-    private String mAuthor;
+    private StringBuilder mAuthor;
     private String mEditor;
     private String mPage;
     private String mUrl;
@@ -44,7 +44,7 @@ public class Book implements Parcelable{
         return mTitle;
     }
 
-    public String getAuthor() {
+    public StringBuilder getAuthor() {
         return mAuthor;
     }
 
@@ -58,7 +58,6 @@ public class Book implements Parcelable{
     public String getUrl(){return mUrl;}
 
     protected Book(Parcel in) {
-        mAuthor = in.readString();
         mEditor = in.readString();
         mPage = in.readString();
         mThumbnail = in.readString();
@@ -74,7 +73,6 @@ public class Book implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mThumbnail);
         dest.writeString(mTitle);
-        dest.writeString(mAuthor);
         dest.writeString(mEditor);
         dest.writeString(mPage);
         dest.writeString(mUrl);

@@ -18,7 +18,7 @@ import khaliliyoussef.booklisting.R;
 import khaliliyoussef.booklisting.model.Book;
 
 /**
- * Created by Enzo on the 14/07/2017.
+ * Created by khalil on the 28/09/2017.
  */
 
 public class BookAdapter extends ArrayAdapter<Book> {

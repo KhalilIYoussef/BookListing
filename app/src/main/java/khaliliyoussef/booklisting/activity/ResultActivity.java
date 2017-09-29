@@ -31,11 +31,11 @@ public class ResultActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private BookAdapter mAdapter;
     private TextView noInternet;
-    private static final String BOOK_REQUEST_URL = getSystem().getString(R.string.book_request_url);
+    private static final String BOOK_REQUEST_URL = "https://www.googleapis.com/books/v1/volumes?q=";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(getSystem().getString(R.string.result_activity));
+        setTitle("ResultActivity");
         setContentView(R.layout.list_view);
 
         String title = getIntent().getStringExtra("title");

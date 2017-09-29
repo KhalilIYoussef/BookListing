@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/insert_library"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="@string/insert_library"
+        android:imeOptions="actionDone"
+        android:inputType="textCapWords" />
+
+    <Button
+        android:id="@+id/search_library"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_search_button"
+        android:background="@drawable/round_edge_btn"
+        android:text="@string/search_library"
+        android:textColor="@color/black" />
+</RelativeLayout>

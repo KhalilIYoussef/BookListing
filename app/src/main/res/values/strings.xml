@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Book Listing</string>
+    <string name="no_internet">no internet connection</string>
+    <string name="title">Title</string>
+    <string name="author">Library Author</string>
+    <string name="editor">Editor</string>
+    <string name="page">Page Number</string>
+    <string name="insert_library"> insert library title</string>
+    <string name="search_library">Search Library</string>
+    <string name="no_data_found">No data found</string>
+    <string name="result_activity">ResultActivity</string>
+    <string name="book_request_url">https://www.googleapis.com/books/v1/volumes?q=</string >
+</resources>

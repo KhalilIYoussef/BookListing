@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bookTitle = editText.getText().toString();
-                Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
-                intent.putExtra("title",bookTitle);
+                Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+                intent.putExtra("title", bookTitle);
 
                 startActivity(intent);
             }

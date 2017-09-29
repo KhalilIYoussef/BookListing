@@ -28,7 +28,8 @@ public final class NetworkUtil {
 
     private static final String LOG_TAG = NetworkUtil.class.getSimpleName();
 
-    private NetworkUtil() {}
+    private NetworkUtil() {
+    }
 
     public static List<Book> fetchBookList(String requestUrl) {
 
@@ -140,7 +141,7 @@ public final class NetworkUtil {
                 StringBuilder authors = new StringBuilder();
                 if (volumeInfo.has("authors")) {
                     authorsArray = volumeInfo.getJSONArray("authors");
-                    for (int n=0; n < authorsArray.length(); n++) {
+                    for (int n = 0; n < authorsArray.length(); n++) {
                         authors.append(System.getProperty("line.separator"));
                         authors.append(authorsArray.getString(n));
                     }
@@ -162,11 +163,11 @@ public final class NetworkUtil {
                     pageCount = "No page";
                 }
                 String url = null;
-                if (volumeInfo.has("infoLink")){
+                if (volumeInfo.has("infoLink")) {
                     url = volumeInfo.getString("infoLink");
                 }
 
-                Book book = new Book(thumbnail,title, authors, publisher, pageCount,url);
+                Book book = new Book(thumbnail, title, authors, publisher, pageCount, url);
 
                 books.add(book);
             }

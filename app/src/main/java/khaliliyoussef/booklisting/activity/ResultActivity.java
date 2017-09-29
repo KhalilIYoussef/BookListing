@@ -30,8 +30,9 @@ public class ResultActivity extends AppCompatActivity {
     private ListView listView;
     private ProgressBar progressBar;
     private BookAdapter mAdapter;
-    private TextView noInternet;
+    private TextView textView;
     private static final String BOOK_REQUEST_URL = "https://www.googleapis.com/books/v1/volumes?q=";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +42,9 @@ public class ResultActivity extends AppCompatActivity {
         String title = getIntent().getStringExtra("title");
 
         String end = "&maxResults=20";
-        Log.e("title: ",title);
-        progressBar = (ProgressBar)findViewById(R.id.progress_bar);
-        noInternet = (TextView)findViewById(R.id.no_internet);
+        Log.e("title: ", title);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        textView = (TextView) findViewById(R.id.no_internet);
 
         ConnectivityManager cm =
                 (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -52,17 +53,16 @@ public class ResultActivity extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         String newUrl = BOOK_REQUEST_URL + title.toLowerCase() + end;
-        Log.e("The new URL",newUrl);
+        Log.e("The new URL", newUrl);
         listView = (ListView) findViewById(R.id.list);
 
         BookAsyncTask task = new BookAsyncTask();
 
         if (isConnected) {
-            task.execute(newUrl );
-        }
-        else {
+            task.execute(newUrl);
+        } else {
             progressBar.setVisibility(View.GONE);
-            noInternet.setText(R.string.no_internet);
+            textView.setText(R.string.no_internet);
         }
         mAdapter = new BookAdapter(this, new ArrayList<Book>());
         listView.setAdapter(mAdapter);
@@ -79,6 +79,7 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
     }
+
     private class BookAsyncTask extends AsyncTask<String, Void, List<Book>> {
 
         @Override
@@ -86,7 +87,7 @@ public class ResultActivity extends AppCompatActivity {
             if (urls.length < 1 || urls[0] == null) {
                 return null;
             }
-           List<Book> result =  NetworkUtil.fetchBookList(urls[0]);
+            List<Book> result = NetworkUtil.fetchBookList(urls[0]);
             return result;
         }
 
@@ -98,7 +99,9 @@ public class ResultActivity extends AppCompatActivity {
             if (data != null && !data.isEmpty()) {
                 mAdapter.addAll(data);
 
-            }else{noInternet.setText(R.string.no_data_found);}
+            } else {
+                textView.setText(R.string.no_data_found);
+            }
         }
     }
 }
